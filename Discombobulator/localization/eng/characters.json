@@ -1,0 +1,16 @@
+{
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.aromaPrinciple": "Lore",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.banter.alive.endTurnPing": "Co-op hurry up end turn ping message",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.banter.dead.endTurnPing": "...",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.cardsModifierDescription": "__ cards will now appear in rewards and shops.",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.cardsModifierTitle": "__ Cards",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.description": "A lost gnome clinging to his trusty invention.\nAdapts resources to his advantage in combat.",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.eventDeathPrevention": "Co-op survival line",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.goldMonologue": "Line spoken when obtaining a large amount of gold",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.possessiveAdjective": "his/her/its",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.pronounObject": "him/her/it",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.pronounPossessive": "his/hers/its",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.pronounSubject": "he/she/it",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.title": "The Discombobulator",
+  "DISCOMBOBULATOR-DISCOMBOBULATOR.titleObject": "The Discombobulator"
+}

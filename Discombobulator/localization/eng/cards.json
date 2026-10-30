@@ -1,0 +1,12 @@
+{
+  "DISCOMBOBULATOR-DISCOMBOBULATE.description": "[gold]Cycle[/gold] a card, relic, or potion.", 
+  "DISCOMBOBULATOR-DISCOMBOBULATE.title": "Discombobulate",
+  "DISCOMBOBULATOR-STRIKE_DISCOMBOBULATOR.description": "Deal {Damage:diff()} damage.",
+  "DISCOMBOBULATOR-STRIKE_DISCOMBOBULATOR.title": "Strike",
+  "DISCOMBOBULATOR-DEFEND_DISCOMBOBULATOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "DISCOMBOBULATOR-DEFEND_DISCOMBOBULATOR.title": "Defend",
+  "DISCOMBOBULATOR-PULL_THE_LEVER.description": "[gold]Transmute[/gold] a slotted relic into a card.",
+  "DISCOMBOBULATOR-PULL_THE_LEVER.title": "Pull The Lever",
+  "DISCOMBOBULATOR-COMBINE.description": "Choose two attacks in your hand. [gold]Transmute[/gold] 4 damage.",
+  "DISCOMBOBULATOR-COMBINE.title": "Combine"
+}

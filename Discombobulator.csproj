@@ -1,0 +1,298 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.5.1" InitialTargets="CheckDependencyPaths">
+    <Import Project=".\Sts2PathDiscovery.props"/>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable> <!--Makes code analysis regarding null values stricter.-->
+        <Publicize>True</Publicize> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+        <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+        <PathMap>$(AppOutputBase)=.\</PathMap>
+        <GodotDisabledSourceGenerators>GodotPluginsInitializer</GodotDisabledSourceGenerators>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Diasble architecture mismatch warning; mods are ideally built for all platforms (MSIL)
+             while your local StS2 version will be for your specific platform. -->
+        <NoWarn>$(NoWarn);MSB3270</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
+        <Reference Include="0Harmony">
+            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="sts2">
+            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(Publicize)">
+        <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All"/>
+        <Publicize Include="sts2" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All"/>
+        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*"/>
+        <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
+        <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
+        <AdditionalFiles Include="Discombobulator/localization/**/*.json"/> <!-- Used by analyzer -->
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Discombobulator/**"/>
+        <Compile Remove="materials/**"/>
+        <Compile Remove="shaders/**"/>
+        <Compile Remove="images/**"/>
+        <EmbeddedResource Remove="Discombobulator/**"/>
+        <EmbeddedResource Remove="materials/**"/>
+        <EmbeddedResource Remove="shaders/**"/>
+        <EmbeddedResource Remove="images/**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props"/>
+        <None Include=".gitignore"/>
+        <None Include="Discombobulator.json"/>
+        <None Include="sts2_locale\achievements.json" />
+        <None Include="sts2_locale\acts.json" />
+        <None Include="sts2_locale\afflictions.json" />
+        <None Include="sts2_locale\ancients.json" />
+        <None Include="sts2_locale\ascension.json" />
+        <None Include="sts2_locale\badges.json" />
+        <None Include="sts2_locale\bestiary.json" />
+        <None Include="sts2_locale\cards.json" />
+        <None Include="sts2_locale\card_keywords.json" />
+        <None Include="sts2_locale\card_library.json" />
+        <None Include="sts2_locale\card_reward_ui.json" />
+        <None Include="sts2_locale\card_selection.json" />
+        <None Include="sts2_locale\characters.json" />
+        <None Include="sts2_locale\combat_messages.json" />
+        <None Include="sts2_locale\credits.json" />
+        <None Include="sts2_locale\enchantments.json" />
+        <None Include="sts2_locale\encounters.json" />
+        <None Include="sts2_locale\epochs.json" />
+        <None Include="sts2_locale\eras.json" />
+        <None Include="sts2_locale\events.json" />
+        <None Include="sts2_locale\extensions.json" />
+        <None Include="sts2_locale\ftues.json" />
+        <None Include="sts2_locale\gameplay_ui.json" />
+        <None Include="sts2_locale\game_modes.json" />
+        <None Include="sts2_locale\game_over_screen.json" />
+        <None Include="sts2_locale\inspect_relic_screen.json" />
+        <None Include="sts2_locale\intents.json" />
+        <None Include="sts2_locale\main_menu_ui.json" />
+        <None Include="sts2_locale\map.json" />
+        <None Include="sts2_locale\merchant_room.json" />
+        <None Include="sts2_locale\modifiers.json" />
+        <None Include="sts2_locale\monsters.json" />
+        <None Include="sts2_locale\orbs.json" />
+        <None Include="sts2_locale\patch_notes\2023_02_09.md" />
+        <None Include="sts2_locale\patch_notes\2023_02_17.md" />
+        <None Include="sts2_locale\patch_notes\2023_04_21.md" />
+        <None Include="sts2_locale\patch_notes\2023_04_29.md" />
+        <None Include="sts2_locale\patch_notes\2023_05_05.md" />
+        <None Include="sts2_locale\patch_notes\2023_05_12.md" />
+        <None Include="sts2_locale\patch_notes\2023_05_19.md" />
+        <None Include="sts2_locale\patch_notes\2023_05_26.md" />
+        <None Include="sts2_locale\patch_notes\2023_06_02.md" />
+        <None Include="sts2_locale\patch_notes\2023_06_09.md" />
+        <None Include="sts2_locale\patch_notes\2023_06_16.md" />
+        <None Include="sts2_locale\patch_notes\2023_06_30.md" />
+        <None Include="sts2_locale\patch_notes\2023_07_07.md" />
+        <None Include="sts2_locale\patch_notes\2023_07_14.md" />
+        <None Include="sts2_locale\patch_notes\2023_07_21.md" />
+        <None Include="sts2_locale\patch_notes\2023_08_04.md" />
+        <None Include="sts2_locale\patch_notes\2023_08_25.md" />
+        <None Include="sts2_locale\patch_notes\2023_09_01.md" />
+        <None Include="sts2_locale\patch_notes\2023_09_08.md" />
+        <None Include="sts2_locale\patch_notes\2023_09_15.md" />
+        <None Include="sts2_locale\patch_notes\2024_04_12.md" />
+        <None Include="sts2_locale\patch_notes\2024_04_19.md" />
+        <None Include="sts2_locale\patch_notes\2024_04_26.md" />
+        <None Include="sts2_locale\patch_notes\2024_05_04.md" />
+        <None Include="sts2_locale\patch_notes\2024_05_10.md" />
+        <None Include="sts2_locale\patch_notes\2024_05_17.md" />
+        <None Include="sts2_locale\patch_notes\2024_05_24.md" />
+        <None Include="sts2_locale\patch_notes\2024_05_31.md" />
+        <None Include="sts2_locale\patch_notes\2024_06_07.md" />
+        <None Include="sts2_locale\patch_notes\2024_06_14.md" />
+        <None Include="sts2_locale\patch_notes\2024_06_21.md" />
+        <None Include="sts2_locale\patch_notes\2024_06_29.md" />
+        <None Include="sts2_locale\patch_notes\2024_07_05.md" />
+        <None Include="sts2_locale\patch_notes\2024_07_12.md" />
+        <None Include="sts2_locale\patch_notes\2024_08_09.md" />
+        <None Include="sts2_locale\patch_notes\2024_08_16.md" />
+        <None Include="sts2_locale\patch_notes\2024_08_23.md" />
+        <None Include="sts2_locale\patch_notes\2024_08_30.md" />
+        <None Include="sts2_locale\patch_notes\2024_09_06.md" />
+        <None Include="sts2_locale\patch_notes\2024_09_12.md" />
+        <None Include="sts2_locale\patch_notes\2024_09_13.md" />
+        <None Include="sts2_locale\patch_notes\2024_09_19.md" />
+        <None Include="sts2_locale\patch_notes\2024_09_26.md" />
+        <None Include="sts2_locale\patch_notes\2024_10_03.md" />
+        <None Include="sts2_locale\patch_notes\2024_10_10.md" />
+        <None Include="sts2_locale\patch_notes\2024_10_17.md" />
+        <None Include="sts2_locale\patch_notes\2024_10_24.md" />
+        <None Include="sts2_locale\patch_notes\2024_11_01.md" />
+        <None Include="sts2_locale\patch_notes\2024_11_07.md" />
+        <None Include="sts2_locale\patch_notes\2024_11_14.md" />
+        <None Include="sts2_locale\patch_notes\2024_11_21.md" />
+        <None Include="sts2_locale\patch_notes\2024_12_05.md" />
+        <None Include="sts2_locale\patch_notes\2024_12_12.md" />
+        <None Include="sts2_locale\patch_notes\2025_01_09.md" />
+        <None Include="sts2_locale\patch_notes\2025_01_16.md" />
+        <None Include="sts2_locale\patch_notes\2025_01_23.md" />
+        <None Include="sts2_locale\patch_notes\2025_01_30.md" />
+        <None Include="sts2_locale\patch_notes\2025_02_06.md" />
+        <None Include="sts2_locale\patch_notes\2025_02_13.md" />
+        <None Include="sts2_locale\patch_notes\2025_02_20.md" />
+        <None Include="sts2_locale\patch_notes\2025_02_27.md" />
+        <None Include="sts2_locale\patch_notes\2025_03_06.md" />
+        <None Include="sts2_locale\patch_notes\2025_03_07.md" />
+        <None Include="sts2_locale\patch_notes\2025_03_13.md" />
+        <None Include="sts2_locale\patch_notes\2025_04_03.md" />
+        <None Include="sts2_locale\patch_notes\2025_04_10.md" />
+        <None Include="sts2_locale\patch_notes\2025_04_17.md" />
+        <None Include="sts2_locale\patch_notes\2025_04_25.md" />
+        <None Include="sts2_locale\patch_notes\2025_05_01.md" />
+        <None Include="sts2_locale\patch_notes\2025_05_08.md" />
+        <None Include="sts2_locale\patch_notes\2025_05_15.md" />
+        <None Include="sts2_locale\patch_notes\2025_05_22.md" />
+        <None Include="sts2_locale\patch_notes\2025_05_29.md" />
+        <None Include="sts2_locale\patch_notes\2025_06_05.md" />
+        <None Include="sts2_locale\patch_notes\2025_06_12.md" />
+        <None Include="sts2_locale\patch_notes\2025_06_20.md" />
+        <None Include="sts2_locale\patch_notes\2025_06_26.md" />
+        <None Include="sts2_locale\patch_notes\2025_07_03.md" />
+        <None Include="sts2_locale\patch_notes\2025_07_10.md" />
+        <None Include="sts2_locale\patch_notes\2025_07_17.md" />
+        <None Include="sts2_locale\patch_notes\2025_07_24.md" />
+        <None Include="sts2_locale\patch_notes\2025_07_31.md" />
+        <None Include="sts2_locale\patch_notes\2025_08_07.md" />
+        <None Include="sts2_locale\patch_notes\2025_08_14.md" />
+        <None Include="sts2_locale\patch_notes\2025_08_21.md" />
+        <None Include="sts2_locale\patch_notes\2025_08_27.md" />
+        <None Include="sts2_locale\patch_notes\2025_09_04.md" />
+        <None Include="sts2_locale\patch_notes\2025_09_11.md" />
+        <None Include="sts2_locale\patch_notes\2025_09_18.md" />
+        <None Include="sts2_locale\patch_notes\2025_09_25.md" />
+        <None Include="sts2_locale\patch_notes\2025_10_02.md" />
+        <None Include="sts2_locale\patch_notes\2025_10_09.md" />
+        <None Include="sts2_locale\patch_notes\2025_10_16.md" />
+        <None Include="sts2_locale\patch_notes\2025_10_23.md" />
+        <None Include="sts2_locale\patch_notes\2025_10_30.md" />
+        <None Include="sts2_locale\patch_notes\2025_11_06.md" />
+        <None Include="sts2_locale\patch_notes\2025_11_13.md" />
+        <None Include="sts2_locale\patch_notes\2025_11_20.md" />
+        <None Include="sts2_locale\patch_notes\2025_12_04.md" />
+        <None Include="sts2_locale\patch_notes\2025_12_11.md" />
+        <None Include="sts2_locale\patch_notes\2025_12_18.md" />
+        <None Include="sts2_locale\patch_notes\2026_01_01.md" />
+        <None Include="sts2_locale\patch_notes\2026_01_08.md" />
+        <None Include="sts2_locale\patch_notes\2026_01_15.md" />
+        <None Include="sts2_locale\patch_notes\2026_01_22.md" />
+        <None Include="sts2_locale\patch_notes\2026_01_29.md" />
+        <None Include="sts2_locale\patch_notes\2026_02_05.md" />
+        <None Include="sts2_locale\patch_notes\2026_02_12.md" />
+        <None Include="sts2_locale\patch_notes\2026_02_19.md" />
+        <None Include="sts2_locale\patch_notes\2026_02_26.md" />
+        <None Include="sts2_locale\patch_notes\2026_03_12.md" />
+        <None Include="sts2_locale\patch_notes\2026_03_19.md" />
+        <None Include="sts2_locale\patch_notes\2026_03_26.md" />
+        <None Include="sts2_locale\patch_notes\2026_04_02.md" />
+        <None Include="sts2_locale\patch_notes\2026_04_09.md" />
+        <None Include="sts2_locale\patch_notes\2026_04_15.md" />
+        <None Include="sts2_locale\patch_notes\2026_04_26.md" />
+        <None Include="sts2_locale\patch_notes\2026_05_07.md" />
+        <None Include="sts2_locale\patch_notes\2026_05_21.md" />
+        <None Include="sts2_locale\patch_notes\2026_05_28.md" />
+        <None Include="sts2_locale\patch_notes\2026_06_04.md" />
+        <None Include="sts2_locale\patch_notes\2026_06_18.md" />
+        <None Include="sts2_locale\patch_notes\2026_07_02.md" />
+        <None Include="sts2_locale\patch_notes\2026_07_16.md" />
+        <None Include="sts2_locale\patch_notes\2026_07_30.md" />
+        <None Include="sts2_locale\patch_notes\2026_08_13.md" />
+        <None Include="sts2_locale\potions.json" />
+        <None Include="sts2_locale\potion_lab.json" />
+        <None Include="sts2_locale\powers.json" />
+        <None Include="sts2_locale\relics.json" />
+        <None Include="sts2_locale\relic_collection.json" />
+        <None Include="sts2_locale\rest_site_ui.json" />
+        <None Include="sts2_locale\rich_presence.json" />
+        <None Include="sts2_locale\run_history.json" />
+        <None Include="sts2_locale\settings_ui.json" />
+        <None Include="sts2_locale\static_hover_tips.json" />
+        <None Include="sts2_locale\stats_screen.json" />
+        <None Include="sts2_locale\timeline.json" />
+        <None Include="sts2_locale\vfx.json" />
+        <None Include="project.godot"/>
+        <None Include="Discombobulator/**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="DiscombobulatorCode\Cards\Common\" />
+        <Folder Include="DiscombobulatorCode\Cards\Uncommon\" />
+        <Folder Include="Discombobulator\images\card_portraits\big\"/>
+        <Folder Include="Discombobulator\images\powers\big\"/>
+        <Folder Include="Discombobulator\images\relics\big\"/>
+    </ItemGroup>
+
+    <Target Name="CheckDependencyPaths">
+        <Error
+                Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'"
+                Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')"/>
+    </Target>
+
+    <Target Name="UpdateDependencyVersions" BeforeTargets="BeforeBuild" Condition="Exists('.godot/mono/temp/obj/project.assets.json')">
+        <PropertyGroup>
+            <ManifestPath>$(MSBuildProjectName).json</ManifestPath>
+        </PropertyGroup>
+
+        <PropertyGroup>
+            <NuGetData>$([System.IO.File]::ReadAllText(".godot/mono/temp/obj/project.assets.json"))</NuGetData>
+            <ActiveBaseLibVersion>$([System.Text.RegularExpressions.Regex]::Match($(NuGetData), '"Alchyr.Sts2.BaseLib\/([^"]*)').Result('$1'))</ActiveBaseLibVersion>
+            <OldContent>$([System.IO.File]::ReadAllText($(ManifestPath)))</OldContent>
+            <NewContent>$([System.Text.RegularExpressions.Regex]::Replace($(OldContent), '("id":\s*"BaseLib",\s*"min_version":\s*")[^"]*', '${1}$(ActiveBaseLibVersion)'))</NewContent>
+        </PropertyGroup>
+
+        <WriteLinesToFile
+                Condition="'$(OldContent)' != '$(NewContent)'"
+                File="$(ManifestPath)"
+                Lines="$(NewContent)"
+                Overwrite="true"
+                Encoding="UTF-8"/>
+
+        <Message Condition="'$(OldContent)' != '$(NewContent)'"
+                 Text="Updated BaseLib dependency version in mod manifest json to version $(BaseLibVersion)"
+                 Importance="high"/>
+    </Target>
+
+    <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
+        <Message Text="Copying .dll .pdb and .json to mods folder." Importance="high"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+    </Target>
+
+    <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
+        <Message Text="Copying quick .pck to mods folder." Importance="high"/>
+        <Copy SourceFiles="$(PckPackerOutputPath)"
+              DestinationFolder="$(ModsPath)/$(MSBuildProjectName)"/>
+    </Target>
+
+    <Target Name="NeedGodotForPublish" BeforeTargets="Publish">
+        <Error Text=" Godot path must be set up before publishing; Godot not found at path '$(GodotPath)'. Check Directory.Build.props file."
+               Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
+    </Target>
+
+    <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
+        <Message Text="Exporting Godot .pck to mods folder" Importance="high"/>
+        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
+              EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
+              ContinueOnError="WarnAndContinue"/>
+    </Target>
+</Project>

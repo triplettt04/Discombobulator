@@ -1,0 +1,19 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discombobulator", "Discombobulator.csproj", "{40622B8A-015D-4F87-AC10-2DAE6E4536DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40622B8A-015D-4F87-AC10-2DAE6E4536DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40622B8A-015D-4F87-AC10-2DAE6E4536DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40622B8A-015D-4F87-AC10-2DAE6E4536DF}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{40622B8A-015D-4F87-AC10-2DAE6E4536DF}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{40622B8A-015D-4F87-AC10-2DAE6E4536DF}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{40622B8A-015D-4F87-AC10-2DAE6E4536DF}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
