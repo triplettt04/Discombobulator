@@ -16,30 +16,13 @@ public class TransferVar : DynamicVar
         this.WithTooltip();
     }
 
-    /*public static IEnumerable<decimal> TransferAmount(
-        CardModel giver,
-        IEnumerable<CardModel> targets,
-        decimal transferAmount,
-        bool isAttack
-    )
+    public override void UpdateCardPreview(
+        CardModel card,
+        CardPreviewMode previewMode,
+        Creature? target,
+        bool runGlobalHooks)
     {
-        string type = isAttack ? "Block" : "Damage";
-        decimal amount = Math.Min(giver.DynamicVars[type].BaseValue, transferAmount);
-        
-        giver.DynamicVars[type].BaseValue -= amount;
-        IEnumerable<decimal> previews = new[] {giver.DynamicVars[type].BaseValue};
-        
-        foreach (CardModel target in targets)
-        {
-            target.DynamicVars[type].BaseValue += amount;
-        }
-
-        return [giver.DynamicVars[type].BaseValue, ];
+        //Test
+        //this.PreviewValue = 17;
     }
-
-    public override void UpdateCardPreview(CardModel card, CardPreviewMode previewMode, Creature? target, bool runGlobalHooks)
-    {
-        this.PreviewValue = (Decimal) .UpdateCardPreview(card, previewMode, target, runGlobalHooks);
-    }
-    */
 }

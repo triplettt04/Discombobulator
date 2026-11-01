@@ -4,5 +4,7 @@ namespace Discombobulator.DiscombobulatorCode.Extensions;
 
 public static class CardSelectorPrefsExtension
 {
-    public static LocString TransferSelectionPrompt => new LocString("card_selection", "TO_TRANSFER");
+    public static LocString TransferDamageSelectionPrompt => new LocString("card_selection", "TO_TRANSFER_DAMAGE");
+    
+    public static LocString TransferBlockSelectionPrompt => new LocString("card_selection", "TO_TRANSFER_BLOCK");
 }

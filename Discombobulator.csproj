@@ -234,8 +234,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="DiscombobulatorCode\Cards\Common\" />
-        <Folder Include="DiscombobulatorCode\Cards\Uncommon\" />
         <Folder Include="Discombobulator\images\card_portraits\big\"/>
         <Folder Include="Discombobulator\images\powers\big\"/>
         <Folder Include="Discombobulator\images\relics\big\"/>
