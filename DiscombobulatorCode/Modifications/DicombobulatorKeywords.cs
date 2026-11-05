@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace Discombobulator.DiscombobulatorCode;
 
-public static class Keywords
+public static class DiscombobulatorKeywords
 {
-    //[CustomEnum("Transfer")] public static CardKeyword Transfer;
+    [CustomEnum("Transfer")] public static CardKeyword Transfer;
 }

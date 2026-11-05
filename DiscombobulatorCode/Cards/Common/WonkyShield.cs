@@ -12,7 +12,9 @@ public class WonkyShield() : DiscombobulatorCard(1,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4, ValueProp.Move), new TransferVar(2)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [DiscombobulatorKeywords.Transfer];
+    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move), new TransferVar(2)];
     
     public override bool GainsBlock => true;
 
@@ -26,7 +28,7 @@ public class WonkyShield() : DiscombobulatorCard(1,
         await TransferCmd.Transfer(
             this,
             DynamicVars[TransferVar.Key].BaseValue,
-            BlockVar.defaultName,
+            false,
             choiceContext,
             Owner,
             this);

@@ -1,4 +1,4 @@
 ﻿{
-  "TO_TRANSFER_DAMAGE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Transfer[/gold] damage.",
-  "TO_TRANSFER_BLOCK": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Transfer[/gold] block."
+  "TO_TRANSFER_DAMAGE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards}. [gold]Transfer[/gold] [blue]{Transfer:diff()}[/blue] damage {Amount:plural:to it|from the first to the second}.",
+  "TO_TRANSFER_BLOCK": "Choose {Amount:plural:a card|[blue]{}[/blue] cards}. [gold]Transfer[/gold] [blue]{Transfer:diff()}[/blue] [gold]Block[/gold] {Amount:plural:to it|from the first to the second}."
 }

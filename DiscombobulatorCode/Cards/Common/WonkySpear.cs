@@ -16,6 +16,8 @@ public class WonkySpear() : DiscombobulatorCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [DiscombobulatorKeywords.Transfer];
+    
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move), new TransferVar(2)];
 
     protected override async Task OnPlay(
@@ -23,9 +25,9 @@ public class WonkySpear() : DiscombobulatorCard(1,
         CardPlay play)
     {
         await DamageCmd
-            .Attack(this.DynamicVars.Damage.BaseValue)
+            .Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(2)
-            .FromCard((CardModel) this, play)
+            .FromCard(this, play)
             .Targeting(play.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
@@ -33,7 +35,7 @@ public class WonkySpear() : DiscombobulatorCard(1,
         await TransferCmd.Transfer(
             this,
             DynamicVars[TransferVar.Key].BaseValue,
-            DamageVar.defaultName,
+            true,
             choiceContext,
             Owner,
             this);

@@ -23,15 +23,15 @@ public class Discombobulator : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeDiscombobulator>(),
-        ModelDb.Card<StrikeDiscombobulator>(),
-        ModelDb.Card<StrikeDiscombobulator>(),
-        ModelDb.Card<StrikeDiscombobulator>(),
-        ModelDb.Card<StrikeDiscombobulator>(),
-        ModelDb.Card<DefendDiscombobulator>(),
-        ModelDb.Card<DefendDiscombobulator>(),
-        ModelDb.Card<DefendDiscombobulator>(),
-        ModelDb.Card<DefendDiscombobulator>(),
+        ModelDb.Card<Strike>(),
+        ModelDb.Card<Strike>(),
+        ModelDb.Card<Strike>(),
+        ModelDb.Card<Strike>(),
+        ModelDb.Card<Strike>(),
+        ModelDb.Card<Defend>(),
+        ModelDb.Card<Defend>(),
+        ModelDb.Card<Defend>(),
+        ModelDb.Card<Defend>(),
         ModelDb.Card<Combine>()
     ];
 

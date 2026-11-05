@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Discombobulator.DiscombobulatorCode.Cards.Basic;
 
-public class DefendDiscombobulator() : DiscombobulatorCard(1,
+public class Defend() : DiscombobulatorCard(1,
     CardType.Skill, CardRarity.Basic,
     TargetType.Self)
 {

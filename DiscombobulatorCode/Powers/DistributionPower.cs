@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace Discombobulator.DiscombobulatorCode.Powers;
 
-public class Distribution() : DiscombobulatorPower
+public class DistributionPower() : DiscombobulatorPower
 {
     public override PowerType Type =>
         PowerType.Buff;

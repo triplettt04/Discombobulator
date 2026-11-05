@@ -1,5 +1,17 @@
 {
-  "DISCOMBOBULATOR-DISTRIBUTION.description": "Distribution adds damage to [gold]Transfers[/gold].",
-  "DISCOMBOBULATOR-DISTRIBUTION.smartDescription": "",
-  "DISCOMBOBULATOR-DISTRIBUTION.title": "Distribution"
+  "DISCOMBOBULATOR-DISTRIBUTION_POWER.description": "Distribution adds damage to [gold]Transfers[/gold].",
+  "DISCOMBOBULATOR-DISTRIBUTION_POWER.smartDescription": "[gold]Transferred[/gold] damage gives [blue]{Amount}[/blue] more.",
+  "DISCOMBOBULATOR-DISTRIBUTION_POWER.title": "Distribution",
+  "DISCOMBOBULATOR-SWING_POWER.description": "At the start of your turn, [gold]Transfer[/gold] damage.",
+  "DISCOMBOBULATOR-SWING_POWER.smartDescription": "At the start of your turn, [gold]Transfer[/gold] [blue]{Amount}[/blue] damage.",
+  "DISCOMBOBULATOR-SWING_POWER.title": "Swing",
+  "DISCOMBOBULATOR-STEP_POWER.description": "At the start of your turn, [gold]Transfer[/gold] [gold]Block[/gold].",
+  "DISCOMBOBULATOR-STEP_POWER.smartDescription": "At the start of your turn, [gold]Transfer[/gold] [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "DISCOMBOBULATOR-STEP_POWER.title": "Step",
+  "DISCOMBOBULATOR-MUSHROOM_POWER.description": "Creatures with [gold]Mushroom[/gold] gain a random debuff at the start of their turn. Each turn, [gold]Mushroom[/gold] is reduced by [blue]1[/blue].",
+  "DISCOMBOBULATOR-MUSHROOM_POWER.smartDescription": "At the start of your turn, {OnPlayer:you gain|it gains} a random debuff, then reduce [gold]Mushroom[/gold] by [blue]1[/blue].",
+  "DISCOMBOBULATOR-MUSHROOM_POWER.title": "Mushroom",
+  "DISCOMBOBULATOR-OVERGROWTH_POWER.description": "Gives [gold]Mushroom[/] to a random enemy at the start of your turn.",
+  "DISCOMBOBULATOR-OVERGROWTH_POWER.smartDescription": "At the start of {OnPlayer:your|its} turn, give a [gold]Mushroom[/gold] to a random enemy [blue]{Amount}[/blue] {Amount:plural:time|times}.",
+  "DISCOMBOBULATOR-OVERGROWTH_POWER.title": "OvergrowthPower"
 }

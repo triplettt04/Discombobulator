@@ -1,10 +1,8 @@
 ﻿using Discombobulator.DiscombobulatorCode.Modifications;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using Discombobulator.DiscombobulatorCode.Extensions;
+using MegaCrit.Sts2.Core.Logging;
 
 namespace Discombobulator.DiscombobulatorCode.Cards.Basic;
 
@@ -12,6 +10,8 @@ public class Combine() : DiscombobulatorCard(0,
     CardType.Skill, CardRarity.Basic,
     TargetType.Self)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [DiscombobulatorKeywords.Transfer];
+    
     protected override IEnumerable<DynamicVar> CanonicalVars => [new TransferVar(4)];
 
     protected override async Task OnPlay(
@@ -22,7 +22,7 @@ public class Combine() : DiscombobulatorCard(0,
         await TransferCmd.Transfer(
             null,
             DynamicVars[TransferVar.Key].BaseValue,
-            DamageVar.defaultName,
+            true,
             choiceContext,
             Owner,
             this);
